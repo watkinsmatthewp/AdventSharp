@@ -9,7 +9,7 @@ namespace AdventSharp.ExampleGame
     public class ExampleGame
     {
         public void Start()
-        {
+        {            
             Place meadow = new Place(false, "grassy meadow");
 
             MainCharacter mc = new MainCharacter("you");

@@ -40,14 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
-    <Compile Include="Models\GameCharacter.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemGroup.cs" />
-    <Compile Include="Models\MainCharacter.cs" />
-    <Compile Include="Models\MovableThing.cs" />
-    <Compile Include="Models\Place.cs" />
+    <Compile Include="Models\Objects\Items\Characters\GameCharacter.cs" />
+    <Compile Include="Models\Objects\Items\Item.cs" />
+    <Compile Include="Models\Objects\Items\ItemGroup.cs" />
+    <Compile Include="Models\Objects\Items\Characters\MainCharacter.cs" />
+    <Compile Include="Models\Objects\MovableThing.cs" />
+    <Compile Include="Models\Objects\Places\Place.cs" />
     <Compile Include="Models\RelativeDirection.cs" />
-    <Compile Include="Models\Thing.cs" />
+    <Compile Include="Models\Objects\Thing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
