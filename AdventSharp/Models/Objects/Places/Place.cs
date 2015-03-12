@@ -10,6 +10,7 @@ namespace AdventSharp
     {
         public Dictionary<RelativeDirection, Place> Exits { get; private set; }
         public List<Thing> Contents { get; private set; }
+        public bool Visited { get; set; }
 
         public Place(bool isUnique, string description)
             : base(isUnique, description)

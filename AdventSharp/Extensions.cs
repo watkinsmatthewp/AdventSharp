@@ -40,5 +40,18 @@ namespace AdventSharp
                 return Char.ToUpperInvariant(thisString[0]) + thisString.Substring(1);
             }
         }
+
+        public static bool MatchesAny<T>(this T itemToCompare, IEnumerable<T> possibleMatches) where T : IComparable
+        {
+            foreach (T possibleMatch in possibleMatches)
+            {
+                if (itemToCompare.CompareTo(possibleMatches) == 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

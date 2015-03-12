@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventSharp.ExampleGame
+namespace AdventSharp
 {
-    class Program
+    public abstract class Command
     {
-        static void Main(string[] args)
+        public string Execute(GameContext Context)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

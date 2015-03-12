@@ -14,6 +14,11 @@ namespace AdventSharp
 
         }
 
+        public override void OnLeave(Place location)
+        {
+            location.Visited = true;
+        }
+
         public string LookAround()
         {
             StringBuilder sb = new StringBuilder();

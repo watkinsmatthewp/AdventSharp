@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventSharp.ExampleGame
 {
-    class Program
+    public class ExampleGameContext : GameContext
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

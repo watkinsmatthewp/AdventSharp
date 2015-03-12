@@ -18,8 +18,17 @@ namespace AdventSharp
         
         public void MoveTo(Place destination)
         {
+            OnLeave(CurrentLocation);
             destination.Contents.Add(this);
-            CurrentLocation = destination;
+            this.CurrentLocation = destination;
+            OnArrive(destination);
         }
+
+        #region Virtual methods
+
+        public virtual void OnLeave(Place destination) { }
+        public virtual void OnArrive(Place destination) { }
+
+        #endregion
     }
 }

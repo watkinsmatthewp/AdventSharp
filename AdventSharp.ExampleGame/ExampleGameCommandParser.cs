@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventSharp.ExampleGame
 {
-    class Program
+    public class ExampleGameCommandParser : CommandParser
     {
-        static void Main(string[] args)
-        {
-            
-        }
+
     }
 }

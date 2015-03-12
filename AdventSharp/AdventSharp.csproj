@@ -39,7 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdventureGame.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="GameContext.cs" />
+    <Compile Include="Models\Commands\Command.cs" />
+    <Compile Include="Models\Commands\CommandParser.cs" />
     <Compile Include="Models\Objects\Items\Characters\GameCharacter.cs" />
     <Compile Include="Models\Objects\Items\Item.cs" />
     <Compile Include="Models\Objects\Items\ItemGroup.cs" />
@@ -49,6 +53,10 @@
     <Compile Include="Models\RelativeDirection.cs" />
     <Compile Include="Models\Objects\Thing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ThirdPartyLib\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

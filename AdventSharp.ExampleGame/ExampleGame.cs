@@ -6,25 +6,17 @@ using System.Threading.Tasks;
 
 namespace AdventSharp.ExampleGame
 {
-    public class ExampleGame
+    public class ExampleGame : AdventureGame<ExampleGameContext, ExampleGameCommandParser>
     {
-        public void Start()
-        {            
-            Place meadow = new Place(false, "grassy meadow");
+        public ExampleGame()
+            : base("Example Game", BuildGameContext(), new ExampleGameCommandParser())
+        {
 
-            MainCharacter mc = new MainCharacter("you");
-            mc.MoveTo(meadow);
-            mc.Inventory.Add(new Item(false, "small sword"));
+        }
 
-            GameCharacter elf = new GameCharacter(false, "elf");
-            elf.MoveTo(meadow);
-
-            Item shield = new Item(false, "shield");
-            shield.MoveTo(meadow);
-
-            Console.WriteLine(mc.LookAround());
-            Console.WriteLine(mc.ListInventory());
-            Console.ReadKey();
+        private static ExampleGameContext BuildGameContext()
+        {
+ 	        throw new NotImplementedException();
         }
     }
 }
