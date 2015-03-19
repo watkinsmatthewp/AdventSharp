@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{34AC5ECE-1ACF-4499-AE02-E5D0748D2AD5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AdventSharp.ExampleGame</RootNamespace>
     <AssemblyName>AdventSharp.ExampleGame</AssemblyName>
@@ -31,9 +31,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +49,12 @@
     <Compile Include="ExampleGame.cs" />
     <Compile Include="ExampleGameCommandParser.cs" />
     <Compile Include="ExampleGameContext.cs" />
+    <Compile Include="ExampleGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExampleGameForm.Designer.cs">
+      <DependentUpon>ExampleGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +66,11 @@
       <Project>{da66a1a6-42c2-49a6-8016-2100cd7802c7}</Project>
       <Name>AdventSharp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExampleGameForm.resx">
+      <DependentUpon>ExampleGameForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -59,6 +59,8 @@ namespace AdventSharp
             }
 
             RespawnPoint = respawnPoint ?? map[0];
+            MainCharacter = mainCharacter;
+            MainCharacter.MoveTo(RespawnPoint);
         }
 
         #endregion

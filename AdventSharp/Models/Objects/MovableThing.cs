@@ -15,10 +15,25 @@ namespace AdventSharp
         {
 
         }
+
+        public void MoveInDirection(RelativeDirection direction)
+        {
+            if (CurrentLocation.Exits.ContainsKey(direction))
+            {
+                MoveTo(CurrentLocation.Exits[direction]);
+            }
+            else
+            {
+                Console.WriteLine("Can't go there");
+            }
+        }
         
         public void MoveTo(Place destination)
         {
-            OnLeave(CurrentLocation);
+            if (CurrentLocation != null)
+            {
+                OnLeave(CurrentLocation);
+            } 
             destination.Contents.Add(this);
             this.CurrentLocation = destination;
             OnArrive(destination);

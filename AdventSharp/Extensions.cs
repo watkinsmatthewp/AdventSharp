@@ -41,17 +41,62 @@ namespace AdventSharp
             }
         }
 
-        public static bool MatchesAny<T>(this T itemToCompare, IEnumerable<T> possibleMatches) where T : IComparable
+        public static bool SharesAnyElementWith<T>(this IList<T> collection1, IList<T> collection2) where T : IComparable
         {
-            foreach (T possibleMatch in possibleMatches)
+            foreach (T item1 in collection1)
             {
-                if (itemToCompare.CompareTo(possibleMatches) == 0)
+                foreach (T item2 in collection2)
                 {
-                    return true;
+                    if (item1.CompareTo(item2) == 0)
+                    {
+                        return true;
+                    }
                 }
             }
 
             return false;
+        }
+
+        //public static bool Contains<T>(this IList<T> collection1, T element) where T : IComparable
+        //{
+        //    foreach (T item1 in collection1)
+        //    {
+        //        if (item1.CompareTo(element) == 0)
+        //        {
+        //            return true;
+        //        }
+        //    }
+
+        //    return false;
+        //}
+
+        public static RelativeDirection ParseDirection(this string directionString)
+        {
+            switch (directionString)
+            {
+                case "up":
+                    return RelativeDirection.Up;
+                case "down":
+                    return RelativeDirection.Down;
+                case "in":
+                    return RelativeDirection.In;
+                case "out":
+                    return RelativeDirection.Out;
+                case "north":
+                case "n":
+                    return RelativeDirection.North;
+                case "south":
+                case "s":
+                    return RelativeDirection.South;
+                case "east":
+                case "e":
+                    return RelativeDirection.East;
+                case "west":
+                case "w":
+                    return RelativeDirection.West;
+                default:
+                    throw new ArgumentException("Could not parse direction " + directionString);
+            }
         }
     }
 }

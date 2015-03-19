@@ -9,14 +9,9 @@ namespace AdventSharp.ExampleGame
     public class ExampleGame : AdventureGame<ExampleGameContext, ExampleGameCommandParser>
     {
         public ExampleGame()
-            : base("Example Game", BuildGameContext(), new ExampleGameCommandParser())
+            : base("Example Game", new ExampleGameContext(), new ExampleGameCommandParser())
         {
 
-        }
-
-        private static ExampleGameContext BuildGameContext()
-        {
- 	        throw new NotImplementedException();
         }
     }
 }

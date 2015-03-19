@@ -21,7 +21,7 @@ namespace AdventSharp
 
         public virtual string GetFullDescription()
         {
-            return ShortDescription;
+            return (IsUnique ? "the " : "a/n ") + ShortDescription;
         }
     }
 }

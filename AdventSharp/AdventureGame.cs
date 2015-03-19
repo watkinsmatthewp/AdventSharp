@@ -39,7 +39,7 @@ namespace AdventSharp
             else
             {
                 Command parsedCommand = CommandParser.ParseCommand(commandWords);
-                if (parsedCommand == null)
+                if (!parsedCommand.ParsedSuccessfully)
                 {
                     return "I don't understand what you're trying to tell me. Type 'help' to get an example list of commands";
                 }
