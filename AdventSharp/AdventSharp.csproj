@@ -52,6 +52,8 @@
     <Compile Include="Models\Objects\Items\ItemGroup.cs" />
     <Compile Include="Models\Objects\Items\Characters\MainCharacter.cs" />
     <Compile Include="Models\Objects\MovableThing.cs" />
+    <Compile Include="Models\Objects\Places\Exit.cs" />
+    <Compile Include="Models\Objects\Places\Map.cs" />
     <Compile Include="Models\Objects\Places\Place.cs" />
     <Compile Include="Models\RelativeDirection.cs" />
     <Compile Include="Models\Objects\Thing.cs" />

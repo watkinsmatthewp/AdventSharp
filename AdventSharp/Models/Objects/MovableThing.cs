@@ -20,7 +20,7 @@ namespace AdventSharp
         {
             if (CurrentLocation.Exits.ContainsKey(direction))
             {
-                MoveTo(CurrentLocation.Exits[direction]);
+                MoveTo(CurrentLocation.Exits[direction].To);
             }
             else
             {

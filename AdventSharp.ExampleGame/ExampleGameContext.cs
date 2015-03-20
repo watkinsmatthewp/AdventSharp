@@ -14,29 +14,20 @@ namespace AdventSharp.ExampleGame
 
         }
 
-        private static List<Place> CreateMap()
+        private static Map CreateMap()
         {
-            Place tardisConsole = new Place(true, "Tardis Engine Room");
-            Place tardisHallway = new Place(true, "Tardis Hallway");
-            Place tardisLibrary = new Place(true, "Tardis Library");
-            Place tardisSwimmingPool = new Place(true, "Tardis Swimming Pool");
+            Map map = new Map();
+            
+            Place tardisConsole = map.AddPlace(new Place(true, "Tardis Engine Room"));
+            Place tardisHallway = map.AddPlace(new Place(true, "Tardis Hallway"));
+            Place tardisLibrary = map.AddPlace(new Place(true, "Tardis Library"));
+            Place tardisSwimmingPool = map.AddPlace(new Place(true, "Tardis Swimming Pool"));
 
-            tardisConsole.Exits.Add(RelativeDirection.Down, tardisHallway);
-            tardisHallway.Exits.Add(RelativeDirection.Up, tardisConsole);
+            map.AddBidirectionalExits(tardisConsole, tardisHallway, RelativeDirection.Down, "a staircase leading down", "s staircase leading up");
+            map.AddBidirectionalExits(tardisHallway, tardisLibrary, RelativeDirection.North, "a winding passageway");
+            map.AddBidirectionalExits(tardisHallway, tardisSwimmingPool, RelativeDirection.South, "a tiled passageway");
 
-            tardisHallway.Exits.Add(RelativeDirection.North, tardisLibrary);
-            tardisLibrary.Exits.Add(RelativeDirection.South, tardisHallway);
-
-            tardisHallway.Exits.Add(RelativeDirection.South, tardisSwimmingPool);
-            tardisSwimmingPool.Exits.Add(RelativeDirection.North, tardisHallway);
-
-            return new List<Place>()
-            {
-                tardisConsole,
-                tardisHallway,
-                tardisLibrary,
-                tardisSwimmingPool
-            };
+            return map;
         }
 
         private static MainCharacter CreateMainCharacter()

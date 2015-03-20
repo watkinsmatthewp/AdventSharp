@@ -50,9 +50,12 @@ namespace AdventSharp
             }
             if (this.CurrentLocation.Exits.Count > 0)
             {
-                foreach (KeyValuePair<RelativeDirection, Place> exit in this.CurrentLocation.Exits)
+                foreach (KeyValuePair<RelativeDirection, Exit> exit in this.CurrentLocation.Exits)
                 {
-                    sb.AppendFormat("\n{0} you is {1}.", exit.Key.ToString().CapitalizeFirstLetter(), exit.Value.ShortDescription);
+                    if (!exit.Value.Hidden)
+                    {
+                        sb.AppendFormat("\n{0} is {1}.", exit.Key.ToString().CapitalizeFirstLetter(), exit.Value.ShortDescription);
+                    }
                 }
             }
             return sb.ToString();

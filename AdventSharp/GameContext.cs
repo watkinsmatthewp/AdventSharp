@@ -13,44 +13,22 @@ namespace AdventSharp
         public List<Place> Map { get; private set; }
         public MainCharacter MainCharacter { get; private set; }
 
-        private Place _respawnPoint;
-        public Place RespawnPoint
-        {
-            get
-            {
-                return _respawnPoint;
-            }
-            protected set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Cannot have a null respawn point");
-                }
-                _respawnPoint = value;
-            }
-        }
-
         #endregion
 
         #region Ctors
 
-        protected GameContext(List<Place> map, MainCharacter mainCharacter)
-            : this(map, mainCharacter, null)
-        {
-
-        }
-        
-        protected GameContext(List<Place> map, MainCharacter mainCharacter, Place respawnPoint)
+        protected GameContext(Map map, MainCharacter mainCharacter)
         {
             // Validate map
             if (map == null)
             {
                 throw new ArgumentNullException("Cannot have a null map");
             }
-            if (map.Count== 0)
+            if (map.Places.Count == 0)
             {
                 throw new ArgumentNullException("Cannot have an empty map");
             }
+            map.RespawnPoint = map.RespawnPoint ?? map.Places[0];
 
             // Validate MC
             if (mainCharacter == null)
@@ -58,9 +36,8 @@ namespace AdventSharp
                 throw new ArgumentNullException("Cannot have a null main character");
             }
 
-            RespawnPoint = respawnPoint ?? map[0];
             MainCharacter = mainCharacter;
-            MainCharacter.MoveTo(RespawnPoint);
+            MainCharacter.MoveTo(map.RespawnPoint);
         }
 
         #endregion
