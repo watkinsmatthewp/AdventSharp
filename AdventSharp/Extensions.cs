@@ -8,27 +8,85 @@ namespace AdventSharp
 {
     public static class Extensions
     {
-        public static string ToString(this RelativeDirection direction)
+        #region Directions
+
+        private static readonly Dictionary<RelativeDirection, RelativeDirection> _oppositeMappings = new Dictionary<RelativeDirection, RelativeDirection>()
         {
-            switch (direction)
+            { RelativeDirection.In, RelativeDirection.Out },
+            { RelativeDirection.Down, RelativeDirection.Up },
+            { RelativeDirection.North, RelativeDirection.South},
+            { RelativeDirection.East, RelativeDirection.West }
+        };
+
+        private static readonly Dictionary<string, RelativeDirection> _directionParseStringMappings = new Dictionary<string, RelativeDirection>()
+        {
+            { "u", RelativeDirection.Up },
+            { "up", RelativeDirection.Up },
+            { "d", RelativeDirection.Down },
+            { "down", RelativeDirection.Down },
+            { "in", RelativeDirection.In },
+            { "out", RelativeDirection.Out },
+            { "n", RelativeDirection.North },
+            { "north", RelativeDirection.North },
+            { "s", RelativeDirection.South },
+            { "south", RelativeDirection.South },
+            { "e", RelativeDirection.East },
+            { "east", RelativeDirection.East },
+            { "w", RelativeDirection.West },
+            { "west", RelativeDirection.West }
+        };
+
+        private static readonly Dictionary<RelativeDirection, string> _directionToStringMappings = new Dictionary<RelativeDirection, string>()
+        {
+            { RelativeDirection.Up, "above" },
+            { RelativeDirection.Down, "beneath" },
+            { RelativeDirection.In, "inside" },
+            { RelativeDirection.Out, "outside"},
+            { RelativeDirection.North, "to the north" },
+            { RelativeDirection.South, "to the south" },
+            { RelativeDirection.East, "to the east" },
+            { RelativeDirection.West, "to the west" }
+        };
+
+        public static RelativeDirection Opposite(this RelativeDirection direction)
+        {
+            foreach (KeyValuePair<RelativeDirection, RelativeDirection> oppositeMapping in _oppositeMappings)
             {
-                case RelativeDirection.Down:
-                    return "below";
-                case RelativeDirection.East:
-                    return "to the east";
-                case RelativeDirection.North:
-                    return "to the north";
-                case RelativeDirection.South:
-                    return "to the south";
-                case RelativeDirection.Up:
-                    return "above";
-                case RelativeDirection.West:
-                    return "to the west";
-                default:
-                    return "somewhere around";
+                if (direction == oppositeMapping.Key)
+                {
+                    return oppositeMapping.Value;
+                }
+                else if (direction == oppositeMapping.Value)
+                {
+                    return oppositeMapping.Key;
+                }
             }
+
+            throw new ArgumentException("Could not get the opposite of " + direction);
+        }
+        
+        public static RelativeDirection ParseDirection(this string directionString)
+        {
+            if (_directionParseStringMappings.ContainsKey(directionString))
+            {
+                return _directionParseStringMappings[directionString];
+            }
+
+            throw new ArgumentException("Could not parse " + directionString + " as a direction");
         }
 
+        public static string ToString(this RelativeDirection direction)
+        {
+            if (_directionToStringMappings.ContainsKey(direction))
+            {
+                return _directionToStringMappings[direction];
+            }
+
+            throw new ArgumentException("Could not convert " + direction + " as a string");
+        }
+
+        #endregion
+        
         public static string CapitalizeFirstLetter(this string thisString)
         {
             if (thisString == null)
@@ -55,50 +113,6 @@ namespace AdventSharp
             }
 
             return false;
-        }
-
-        //public static bool Contains<T>(this IList<T> collection1, T element) where T : IComparable
-        //{
-        //    foreach (T item1 in collection1)
-        //    {
-        //        if (item1.CompareTo(element) == 0)
-        //        {
-        //            return true;
-        //        }
-        //    }
-
-        //    return false;
-        //}
-
-        public static RelativeDirection ParseDirection(this string directionString)
-        {
-            switch (directionString)
-            {
-                case "u":
-                case "up":
-                    return RelativeDirection.Up;
-                case "d":
-                case "down":
-                    return RelativeDirection.Down;
-                case "in":
-                    return RelativeDirection.In;
-                case "out":
-                    return RelativeDirection.Out;
-                case "north":
-                case "n":
-                    return RelativeDirection.North;
-                case "south":
-                case "s":
-                    return RelativeDirection.South;
-                case "east":
-                case "e":
-                    return RelativeDirection.East;
-                case "west":
-                case "w":
-                    return RelativeDirection.West;
-                default:
-                    throw new ArgumentException("Could not parse direction " + directionString);
-            }
         }
     }
 }
