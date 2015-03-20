@@ -74,8 +74,10 @@ namespace AdventSharp
         {
             switch (directionString)
             {
+                case "u":
                 case "up":
                     return RelativeDirection.Up;
+                case "d":
                 case "down":
                     return RelativeDirection.Down;
                 case "in":

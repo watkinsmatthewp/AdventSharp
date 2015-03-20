@@ -42,8 +42,7 @@
             this.txtCommand.Name = "txtCommand";
             this.txtCommand.Size = new System.Drawing.Size(366, 20);
             this.txtCommand.TabIndex = 0;
-            this.txtCommand.TextChanged += new System.EventHandler(this.txtCommand_TextChanged);
-            this.txtCommand.KeyUp += txtCommand_KeyUp;
+            this.txtCommand.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCommand_KeyUp);
             // 
             // txtOutput
             // 
@@ -59,6 +58,7 @@
             // 
             // btnEnter
             // 
+            this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnter.Enabled = false;
             this.btnEnter.Location = new System.Drawing.Point(385, 11);
             this.btnEnter.Name = "btnEnter";

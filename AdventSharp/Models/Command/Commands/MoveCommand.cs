@@ -31,6 +31,8 @@ namespace AdventSharp
             "west",
 
             // Direction super shortcuts
+            "u",
+            "d",
             "n", 
             "s", 
             "e", 

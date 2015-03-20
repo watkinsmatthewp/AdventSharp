@@ -27,15 +27,11 @@ namespace AdventSharp.ExampleGame
 
         void txtCommand_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode == System.Windows.Forms.Keys.Enter)
+            btnEnter.Enabled = !String.IsNullOrWhiteSpace(txtCommand.Text);
+            if (e.KeyCode == System.Windows.Forms.Keys.Enter && btnEnter.Enabled)
             {
                 SubmitCommand();
             }
-        }
-
-        private void txtCommand_TextChanged(object sender, EventArgs e)
-        {
-            btnEnter.Enabled = !String.IsNullOrWhiteSpace(txtCommand.Text);
         }
 
         private void SubmitCommand()
