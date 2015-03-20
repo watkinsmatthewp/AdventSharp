@@ -34,7 +34,7 @@ namespace AdventSharp
             {
                 ParsedSuccessfully = ParseCommand(commandWords);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ParsedSuccessfully = false;
             }
