@@ -18,7 +18,7 @@ namespace AdventSharp.ExampleGame
         {
             InitializeComponent();
             _game = new ExampleGame();
-            txtOutput.Text = _game.Start();
+            txtCurrentLocationDescription.Text = _game.Start();
         }
 
         private void btn_Enter_Click(object sender, EventArgs e)
@@ -32,12 +32,18 @@ namespace AdventSharp.ExampleGame
             if (e.KeyCode == System.Windows.Forms.Keys.Enter && btnEnter.Enabled)
             {
                 SubmitCommand();
+                e.Handled = true;
             }
         }
 
         private void SubmitCommand()
         {
-            txtOutput.Text = _game.EnterCommand(txtCommand.Text);
+            string commandResult = _game.EnterCommand(txtCommand.Text);
+            string locationDescription = "You are in " + _game.Context.MainCharacter.CurrentLocation.Describe();
+
+            txtCurrentLocationDescription.Text = locationDescription;
+            txtCommandResult.Text = commandResult == locationDescription ? "See description below" : commandResult;
+
             txtCommand.Clear();
         }
     }

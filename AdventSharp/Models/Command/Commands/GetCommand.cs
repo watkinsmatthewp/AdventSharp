@@ -32,8 +32,8 @@ namespace AdventSharp
 
         public override string Execute(GameContext context)
         {
-            Item itemToGet = context.MainCharacter.CurrentLocation.Contents.FirstOrDefault(t => 
-                t is Item && t.ShortDescription.Equals(Target)) as Item;
+            Item itemToGet = context.MainCharacter.CurrentLocation.Contents.FirstOrDefault(t =>
+                t is Item && Target.Contains(t.Name)) as Item;
             if (itemToGet == null)
             {
                 return "Nothing to get with that name";

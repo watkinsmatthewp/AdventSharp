@@ -26,26 +26,15 @@ namespace AdventSharp
 
         public string ListInventory()
         {
-            StringBuilder sb = new StringBuilder();
-            if (this is MainCharacter)
+            if (Inventory.Count == 0)
             {
-                sb.AppendLine("You have:");
-            }
-            else
-            {
-                sb.AppendLine(ShortDescription + " has:");
+                return "nothing";
             }
             
-            if (Inventory.Count > 0)
+            StringBuilder sb = new StringBuilder();
+            foreach (Item item in Inventory)
             {
-                foreach (Item item in Inventory)
-                {
-                    sb.AppendLine("- a " + item.ShortDescription);
-                }
-            }
-            else
-            {
-                sb.AppendLine("- Absolutely nothing");
+                sb.AppendLine("- " + item.ShortDescription);
             }
             return sb.ToString();
         }

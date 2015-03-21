@@ -45,6 +45,7 @@
     <Compile Include="Models\Command\Command.cs" />
     <Compile Include="Models\Command\CommandParser.cs" />
     <Compile Include="Models\Command\Commands\GetCommand.cs" />
+    <Compile Include="Models\Command\Commands\InventoryCommand.cs" />
     <Compile Include="Models\Command\Commands\LookCommand.cs" />
     <Compile Include="Models\Command\Commands\MoveCommand.cs" />
     <Compile Include="Models\Objects\Items\Characters\GameCharacter.cs" />

@@ -12,10 +12,11 @@ namespace AdventSharp
     {       
         #region Public Properties
 
-        protected string GameTitle { get; private set; }
-        protected virtual string GameDescription { get { return "A great game"; } }
-        
-        protected C Context { get; private set; }
+        public string GameTitle { get; private set; }       
+        public C Context { get; private set; }
+
+        public virtual string GameDescription { get { return "A great game"; } }
+
         protected P CommandParser { get; private set; }
 
         #endregion

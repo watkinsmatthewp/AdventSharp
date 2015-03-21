@@ -31,6 +31,11 @@ namespace AdventSharp
                 // Is it a get command?
                 parsedCommand = new GetCommand(commandWords);
             }
+            if (!parsedCommand.ParsedSuccessfully)
+            {
+                // Is it an inventory command?
+                parsedCommand = new InventoryCommand(commandWords);
+            }
 
             return parsedCommand;
         }

@@ -44,7 +44,7 @@ namespace AdventSharp
             }
             foreach (Thing item in this.Contents.Where(i => !(i is MainCharacter)))
             {
-                sb.AppendLine("There is " + item + " here");
+                sb.AppendLine("There is " + item.ShortDescription + " here");
             }
             return sb.ToString();
         }

@@ -21,6 +21,7 @@ namespace AdventSharp.ExampleGame
             Place tardisConsole = map.AddPlace(new Place(true, "Tardis Engine Room"));
             Place tardisHallway = map.AddPlace(new Place(true, "Tardis Hallway"));
             Place tardisLibrary = map.AddPlace(new Place(true, "Tardis Library"));
+            tardisLibrary.Contents.Add(new Item(false, "fez"));
             Place tardisSwimmingPool = map.AddPlace(new Place(true, "Tardis Swimming Pool"));
 
             map.AddBidirectionalExits(tardisConsole, tardisHallway, RelativeDirection.Down, "staircase leading down", "staircase leading up");
@@ -34,7 +35,6 @@ namespace AdventSharp.ExampleGame
         {
             MainCharacter mc = new MainCharacter("the Doctor");
             mc.Inventory.Add(new Item(false, "sonic screwdriver"));
-            mc.Inventory.Add(new Item(false, "fez"));
             return mc;
         }
     }
