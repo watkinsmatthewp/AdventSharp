@@ -52,7 +52,7 @@ namespace AdventSharp
             {
                 foreach (KeyValuePair<RelativeDirection, Exit> exit in this.CurrentLocation.Exits)
                 {
-                    if (!exit.Value.Hidden)
+                    if (!exit.Value.Visible)
                     {
                         sb.AppendFormat("\n{0} is {1}.", exit.Key.ToString().CapitalizeFirstLetter(), exit.Value.ShortDescription);
                     }

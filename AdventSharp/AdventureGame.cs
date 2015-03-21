@@ -49,5 +49,14 @@ namespace AdventSharp
         }
 
         #endregion
+
+        #region Overridable methods
+
+        public virtual string Start()
+        {
+            return EnterCommand("look");
+        }
+
+        #endregion
     }
 }

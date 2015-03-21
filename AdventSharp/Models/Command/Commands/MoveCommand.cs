@@ -69,10 +69,10 @@ namespace AdventSharp
             return false;
         }
 
-        public override string Execute(GameContext Context)
+        public override string Execute(GameContext context)
         {
-            Context.MainCharacter.MoveInDirection(Direction);
-            return "You moved";
+            context.MainCharacter.MoveInDirection(Direction);
+            return "You are in " + context.MainCharacter.CurrentLocation.Describe();
         }
     }
 }

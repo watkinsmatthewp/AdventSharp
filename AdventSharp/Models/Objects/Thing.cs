@@ -9,19 +9,15 @@ namespace AdventSharp
     public abstract class Thing
     {
         public bool IsUnique { get; private set; }
+        public string Name { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }
 
-        protected Thing(bool isUnique, string shortDescription)
+        protected Thing(bool isUnique, string name)
         {
             IsUnique = isUnique;
-            ShortDescription = shortDescription ?? String.Empty;
-            LongDescription = ShortDescription;
-        }
-
-        public virtual string GetFullDescription()
-        {
-            return (IsUnique ? "the " : "a/n ") + ShortDescription;
+            Name = name;
+            LongDescription = ShortDescription = (IsUnique ? "the" : Name[0].IsVowel() ? "an" : "a") + " " + Name;
         }
     }
 }

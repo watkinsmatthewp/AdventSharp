@@ -27,7 +27,7 @@ namespace AdventSharp
 
         public override string Execute(GameContext context)
         {
-            return "You see " + context.MainCharacter.CurrentLocation.GetFullDescription();
+            return "You are in " + context.MainCharacter.CurrentLocation.Describe();
         }
     }
 }

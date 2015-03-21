@@ -33,5 +33,20 @@ namespace AdventSharp
         {
             Exits.Add(exit.Via, exit);
         }
+
+        public string Describe()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(this.LongDescription);
+            foreach (KeyValuePair<RelativeDirection, Exit> exit in this.Exits)
+            {
+                sb.AppendLine(String.Format("{0} is {1}", exit.Key.GetString().CapitalizeFirstLetter(), exit.Value.LongDescription));
+            }
+            foreach (Thing item in this.Contents.Where(i => !(i is MainCharacter)))
+            {
+                sb.AppendLine("There is " + item + " here");
+            }
+            return sb.ToString();
+        }
     }
 }

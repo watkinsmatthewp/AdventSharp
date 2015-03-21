@@ -16,8 +16,9 @@ namespace AdventSharp.ExampleGame
         
         public ExampleGameForm()
         {
-            _game = new ExampleGame();
             InitializeComponent();
+            _game = new ExampleGame();
+            txtOutput.Text = _game.Start();
         }
 
         private void btn_Enter_Click(object sender, EventArgs e)

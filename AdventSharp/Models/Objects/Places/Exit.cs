@@ -11,21 +11,23 @@ namespace AdventSharp
         public Place From { get; private set; }
         public Place To { get; private set; }
         public RelativeDirection Via { get; private set; }
-        public bool Hidden { get; set; }
+        public bool Visible { get; set; }
+        public bool Blocked { get; set; }
 
         public Exit(string shortDescription, Place from, Place to, RelativeDirection via)
-            : this(shortDescription, from, to, via, false)
+            : this(shortDescription, from, to, via, true)
         {
 
         }
         
-        public Exit(string shortDescription, Place from, Place to, RelativeDirection via, bool hidden)
+        public Exit(string shortDescription, Place from, Place to, RelativeDirection via, bool visible)
             : base(false, shortDescription)
         {
             From = from;
             To = to;
             Via = via;
-            Hidden = hidden;
+            Visible = visible;
+            Blocked = false;
         }
     }
 }

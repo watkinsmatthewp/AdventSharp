@@ -23,9 +23,9 @@ namespace AdventSharp.ExampleGame
             Place tardisLibrary = map.AddPlace(new Place(true, "Tardis Library"));
             Place tardisSwimmingPool = map.AddPlace(new Place(true, "Tardis Swimming Pool"));
 
-            map.AddBidirectionalExits(tardisConsole, tardisHallway, RelativeDirection.Down, "a staircase leading down", "s staircase leading up");
-            map.AddBidirectionalExits(tardisHallway, tardisLibrary, RelativeDirection.North, "a winding passageway");
-            map.AddBidirectionalExits(tardisHallway, tardisSwimmingPool, RelativeDirection.South, "a tiled passageway");
+            map.AddBidirectionalExits(tardisConsole, tardisHallway, RelativeDirection.Down, "staircase leading down", "staircase leading up");
+            map.AddBidirectionalExits(tardisHallway, tardisLibrary, RelativeDirection.North, "winding passageway");
+            map.AddBidirectionalExits(tardisHallway, tardisSwimmingPool, RelativeDirection.South, "tiled passageway");
 
             return map;
         }

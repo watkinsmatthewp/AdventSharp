@@ -75,7 +75,7 @@ namespace AdventSharp
             throw new ArgumentException("Could not parse " + directionString + " as a direction");
         }
 
-        public static string ToString(this RelativeDirection direction)
+        public static string GetString(this RelativeDirection direction)
         {
             if (_directionToStringMappings.ContainsKey(direction))
             {
@@ -86,7 +86,11 @@ namespace AdventSharp
         }
 
         #endregion
-        
+
+        #region strings
+
+        private static readonly char[] VOWELS = new char[] { 'a', 'e', 'i', 'o', 'u' };
+
         public static string CapitalizeFirstLetter(this string thisString)
         {
             if (thisString == null)
@@ -98,6 +102,13 @@ namespace AdventSharp
                 return Char.ToUpperInvariant(thisString[0]) + thisString.Substring(1);
             }
         }
+
+        public static bool IsVowel(this char c)
+        {
+            return VOWELS.Contains(c);
+        }
+
+        #endregion
 
         public static bool SharesAnyElementWith<T>(this IList<T> collection1, IList<T> collection2) where T : IComparable
         {
